@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="content">
-        <center><h1>Welcome Home</h1></center>
+        <center><h1>Welcome Master</h1></center>
     </div>
 
     <div class="container">

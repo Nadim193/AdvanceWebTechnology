@@ -23,7 +23,7 @@ Route::get('/home', [HomePageController::class, 'home'])->name('home');
 //product
 Route::get('/product',[ProductController::class, 'productCreate'])->name('productcre');
 Route::post('/product',[ProductController::class, 'productCreateSubmitted'])->name('productsub');
-Route::get('/productlist',[ProductController::class, 'productlist'])->name('productlist');
+Route::get('/productlist',[ProductController::class, 'productCreateSubmitted'])->name('productlist');
 //end product
 Route::get('/ourteams', [HomePageController::class, 'ourteams'])->name('ourteams');
 Route::get('/aboutus', [HomePageController::class, 'aboutus'])->name('aboutus');
