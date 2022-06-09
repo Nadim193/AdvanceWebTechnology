@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LoginPageController;
+use App\Http\Controllers\RegistrationPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,9 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', [LoginPageController::class, 'login'])->name('login');
+Route::get('/registration', [RegistrationPageController::class, 'registration'])->name('registration');
 
 Route::get('/home', [HomePageController::class, 'home'])->name('home');
 //product
