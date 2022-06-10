@@ -21,8 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//login
 Route::get('/login', [LoginPageController::class, 'login'])->name('login');
+Route::post('/login', [LoginPageController::class, 'loginsubmit'])->name('login');
+//login
+
+//registration
 Route::get('/registration', [RegistrationPageController::class, 'registration'])->name('registration');
+Route::post('/registration', [RegistrationPageController::class, 'registrationsubmit'])->name('registration');
+//registration
 
 Route::get('/home', [HomePageController::class, 'home'])->name('home');
 //product

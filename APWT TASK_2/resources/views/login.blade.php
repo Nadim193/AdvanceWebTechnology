@@ -10,8 +10,40 @@
     @extends('layouts.app')
         @section('content')
             <br>
-            <p>This is a simple Login page..</p>
+            @if(session()->has('error'))
+                <div class="alert alert-Error">
+                {{ session()->get('error') }}
+                </div>
+            @endif
             <br>
+            <div style="margin-left: 1.4%;">
+                <form action="{{route('login')}}" method="post">
+
+                    {{@csrf_field()}}
+
+                    <div class="col-md-4 form-group">
+                        <b><span>Username: </span></b>
+                        <input type="text" name="username" value="{{old('username')}}" class="form-control">
+                        @error('username')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <div class="col-md-4 form-group">
+                        <b><span>Password</span>: </span></b>
+                        <input type="password" name="lpassword" value="{{old('lpassword')}}" class="form-control">
+                        @error('lpassword')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <input type="checkbox" name="remember" value="Remember Me"> Remember Me
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-success" value="Login" >    
+                </form>
+                <br>
+            </div>
         @endsection
 </body>
 </html>
