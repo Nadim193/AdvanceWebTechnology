@@ -24,6 +24,7 @@ Route::get('/', function () {
 //login
 Route::get('/login', [LoginPageController::class, 'login'])->name('login');
 Route::post('/login', [LoginPageController::class, 'loginsubmit'])->name('login');
+Route::get('/logout',[LoginPageController::class,'logout'])->name('logout');
 //login
 
 //registration
@@ -31,11 +32,11 @@ Route::get('/registration', [RegistrationPageController::class, 'registration'])
 Route::post('/registration', [RegistrationPageController::class, 'registrationsubmit'])->name('registration');
 //registration
 
-Route::get('/home', [HomePageController::class, 'home'])->name('home');
+Route::get('/home', [HomePageController::class, 'home'])->name('home')->middleware('ValideUser');
 //product
-Route::get('/product',[ProductController::class, 'productCreate'])->name('productcre');
-Route::post('/product',[ProductController::class, 'productCreateSubmitted'])->name('productsub');
-Route::get('/productlist',[ProductController::class, 'productCreateSubmitted'])->name('productlist');
+Route::get('/product',[ProductController::class, 'productCreate'])->name('productcre')->middleware('ValideUser');
+Route::post('/product',[ProductController::class, 'productCreateSubmitted'])->name('productsub')->middleware('ValideUser');
+Route::get('/productlist',[ProductController::class, 'productCreateSubmitted'])->name('productlist')->middleware('ValideUser');
 //end product
 Route::get('/ourteams', [HomePageController::class, 'ourteams'])->name('ourteams');
 Route::get('/aboutus', [HomePageController::class, 'aboutus'])->name('aboutus');

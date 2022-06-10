@@ -25,6 +25,8 @@ class LoginPageController extends Controller
             $password = Session('password');
 
             if($uname === $request->username && $password === $request->lpassword ){
+
+                session()->put('user',$request->username);
                 return redirect()->route('home');
             }
             else{
@@ -33,5 +35,10 @@ class LoginPageController extends Controller
                 ->with('error', $error);
             }
         }
+    }
+
+    public function logout(){
+        session()->forget('user');
+        return redirect()->route('login');
     }
 }
