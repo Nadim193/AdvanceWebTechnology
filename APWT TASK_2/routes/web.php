@@ -33,6 +33,7 @@ Route::post('/registration', [RegistrationPageController::class, 'registrationsu
 //registration
 
 Route::get('/home', [HomePageController::class, 'home'])->name('home')->middleware('ValideUser');
+
 //product
 Route::get('/product',[ProductController::class, 'productCreate'])->name('productcre')->middleware('ValideUser');
 Route::post('/product',[ProductController::class, 'productCreateSubmitted'])->name('productsub')->middleware('ValideUser');
@@ -40,4 +41,8 @@ Route::get('/productlist',[ProductController::class, 'productCreateSubmitted'])-
 //end product
 Route::get('/ourteams', [HomePageController::class, 'ourteams'])->name('ourteams');
 Route::get('/aboutus', [HomePageController::class, 'aboutus'])->name('aboutus');
+
+//contact us
 Route::get('/contactusus', [HomePageController::class, 'contactus'])->name('contactus');
+Route::post('/contactusus', [HomePageController::class, 'contactussubmit'])->name('contactus');
+//End contact us
