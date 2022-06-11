@@ -33,7 +33,7 @@ class HomePageController extends Controller
 
         if($validate){
 
-            $success = "Successfully Sent. Please Wait our teams will contuct you shortly.";
+            $success = "Successfully Sent. Please Wait our teams will contact you shortly.";
             return redirect()->route('contactus')
             ->with('success', $success);
         }
